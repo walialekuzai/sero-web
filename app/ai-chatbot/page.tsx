@@ -6,7 +6,7 @@ const reveal = {
   initial:{ opacity:0, y:36 },
   whileInView:{ opacity:1, y:0 },
   viewport:{ once:true } as const,
-  transition:{ duration:.75, ease:[.16,1,.3,1] }
+  transition:{ duration:.75, ease:[.16,1,.3,1] as [number,number,number,number] }
 };
 
 const messages = [
@@ -64,7 +64,7 @@ function ChatDemo({ delay=0 }: { delay?: number }) {
                 <motion.div key={i}
                   initial={{ opacity:0, y:8 }}
                   animate={{ opacity:1, y:0 }}
-                  transition={{ duration:.4, delay: delay + i * 1.2 + .5, ease:[.16,1,.3,1] }}
+                  transition={{ duration:.4, delay: delay + i * 1.2 + .5, ease:[.16,1,.3,1] as [number,number,number,number] }}
                   style={{ display:"flex", justifyContent: msg.from==="user" ? "flex-end" : "flex-start", marginBottom:6 }}
                 >
                   <div style={{
@@ -156,7 +156,7 @@ export default function AIChatbotPage() {
             {tiers.map((tier, i) => (
               <motion.div key={tier.id}
                 initial={{ opacity:0, y:48 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] }}
+                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ position:"relative" }}
               >
                 {tier.popular && (

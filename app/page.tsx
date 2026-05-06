@@ -9,7 +9,7 @@ const reveal = {
   initial:{ opacity:0, y:32 },
   whileInView:{ opacity:1, y:0 },
   viewport:{ once:true } as const,
-  transition:{ duration:.72, ease:[.16,1,.3,1] },
+  transition:{ duration:.72, ease:[.16,1,.3,1] as [number,number,number,number] },
 };
 
 const services = [
@@ -49,7 +49,7 @@ export default function Home() {
         <div style={{ position:"relative", zIndex:1, textAlign:"center", padding:"160px 80px 100px", maxWidth:1000, margin:"0 auto", width:"100%" }}>
 
           {/* Badge */}
-          <motion.div initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }} transition={{ duration:.55, ease:[.16,1,.3,1] }}
+          <motion.div initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }} transition={{ duration:.55, ease:[.16,1,.3,1] as [number,number,number,number] }}
             style={{ display:"inline-flex", alignItems:"center", gap:10, background:"#fff", border:"1px solid rgba(0,0,0,.08)", borderRadius:100, padding:"9px 22px", fontSize:13, fontWeight:500, color:"#666", marginBottom:56, boxShadow:"0 2px 12px rgba(0,0,0,.04)", fontFamily:font }}>
             <span style={{ width:7, height:7, borderRadius:"50%", background:C.green, display:"inline-block" }}/>
             Tilgængelig for kunder i Danmark og internationalt
@@ -59,7 +59,7 @@ export default function Home() {
           <div style={{ marginBottom:32 }}>
             {["Spar tid.", "Tjen mere."].map((line, i) => (
               <div key={line} style={{ overflow:"hidden" }}>
-                <motion.div initial={{ y:"105%" }} animate={{ y:"0%" }} transition={{ duration:.9, delay:.1+i*.14, ease:[.16,1,.3,1] }}
+                <motion.div initial={{ y:"105%" }} animate={{ y:"0%" }} transition={{ duration:.9, delay:.1+i*.14, ease:[.16,1,.3,1] as [number,number,number,number] }}
                   style={{ fontFamily:font, fontSize:"clamp(72px,10.5vw,128px)", fontWeight:900, letterSpacing:"-0.046em", lineHeight:.93, color: i===0 ? C.black : C.blue }}>
                   {line}
                 </motion.div>
@@ -68,13 +68,13 @@ export default function Home() {
           </div>
 
           {/* Subheadline */}
-          <motion.p initial={{ opacity:0, y:18 }} animate={{ opacity:1, y:0 }} transition={{ duration:.7, delay:.52, ease:[.16,1,.3,1] }}
+          <motion.p initial={{ opacity:0, y:18 }} animate={{ opacity:1, y:0 }} transition={{ duration:.7, delay:.52, ease:[.16,1,.3,1] as [number,number,number,number] }}
             style={{ fontFamily:font, fontSize:"clamp(16px,1.9vw,19px)", color:"#888", lineHeight:1.72, maxWidth:520, margin:"0 auto 56px", fontWeight:400 }}>
             Vi bygger hjemmesider, AI chatbots og automatiseringer der frigiver din tid og trækker flere kunder ind — uden ekstra arbejde fra din side.
           </motion.p>
 
           {/* CTA knapper */}
-          <motion.div initial={{ opacity:0, y:18 }} animate={{ opacity:1, y:0 }} transition={{ duration:.7, delay:.68, ease:[.16,1,.3,1] }}
+          <motion.div initial={{ opacity:0, y:18 }} animate={{ opacity:1, y:0 }} transition={{ duration:.7, delay:.68, ease:[.16,1,.3,1] as [number,number,number,number] }}
             style={{ display:"flex", gap:14, justifyContent:"center", flexWrap:"wrap", marginBottom:96 }}>
             <Link href="/hjemmesider"
               style={{ background:C.black, color:"#fff", padding:"18px 48px", borderRadius:100, fontSize:16, fontWeight:700, fontFamily:font, transition:"transform .22s, background .18s" }}
@@ -132,7 +132,7 @@ export default function Home() {
             {services.map((svc, i) => (
               <motion.div key={svc.num}
                 initial={{ opacity:0, y:44 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.72, delay:i*.07, ease:[.16,1,.3,1] }}>
+                transition={{ duration:.72, delay:i*.07, ease:[.16,1,.3,1] as [number,number,number,number] }}>
                 <Link href={svc.href} style={{ display:"block", background:"#FAFAFA", borderRadius:22, padding:"40px 36px", border:"1px solid rgba(0,0,0,.07)", borderLeft:"3px solid transparent", transition:"transform .3s cubic-bezier(.25,1,.5,1), box-shadow .3s, border-left-color .2s, background .2s" }}
                   onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-8px)";e.currentTarget.style.boxShadow="0 28px 60px rgba(0,0,0,.07)";e.currentTarget.style.borderLeftColor=C.blue;e.currentTarget.style.background="#fff";}}
                   onMouseLeave={e=>{e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="";e.currentTarget.style.borderLeftColor="transparent";e.currentTarget.style.background="#FAFAFA";}}>
@@ -165,7 +165,7 @@ export default function Home() {
             {stats.map((s, i) => (
               <motion.div key={s.value}
                 initial={{ opacity:0, y:36 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.68, delay:i*.08, ease:[.16,1,.3,1] }}
+                transition={{ duration:.68, delay:i*.08, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ background:"#fff", borderRadius:20, padding:"40px 32px", border:"1px solid rgba(0,0,0,.07)" }}>
                 <div style={{ fontFamily:font, fontSize:52, fontWeight:900, letterSpacing:"-0.04em", color:C.black, lineHeight:1, marginBottom:12 }}>{s.value}</div>
                 <div style={{ fontFamily:font, fontSize:16, fontWeight:700, color:C.black, marginBottom:6 }}>{s.label}</div>

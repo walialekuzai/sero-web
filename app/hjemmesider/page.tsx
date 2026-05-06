@@ -6,7 +6,7 @@ const reveal = {
   initial:{ opacity:0, y:36 },
   whileInView:{ opacity:1, y:0 },
   viewport:{ once:true } as const,
-  transition:{ duration:.75, ease:[.16,1,.3,1] }
+  transition:{ duration:.75, ease:[.16,1,.3,1] as [number,number,number,number] }
 };
 
 function BrowserMock({ tier, delay=0 }: { tier: "basic"|"pro"|"premium"; delay?: number }) {
@@ -157,7 +157,7 @@ export default function HjemmesiderPage() {
             {tiers.map((tier, i) => (
               <motion.div key={tier.id}
                 initial={{ opacity:0, y:48 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] }}
+                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ position:"relative" }}
               >
                 {tier.popular && (
@@ -236,7 +236,7 @@ export default function HjemmesiderPage() {
             ].map((item, i) => (
               <motion.div key={item.title}
                 initial={{ opacity:0, y:32 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.7, delay:i*.07, ease:[.16,1,.3,1] }}
+                transition={{ duration:.7, delay:i*.07, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ background:"#fff", borderRadius:20, padding:"28px 24px", border:"1px solid rgba(0,0,0,.07)" }}
               >
                 <div style={{ fontSize:28, marginBottom:14 }}>{item.icon}</div>

@@ -9,7 +9,7 @@ const reveal = {
   initial:{ opacity:0, y:28 },
   whileInView:{ opacity:1, y:0 },
   viewport:{ once:true } as const,
-  transition:{ duration:.68, ease:[.16,1,.3,1] },
+  transition:{ duration:.68, ease:[.16,1,.3,1] as [number,number,number,number] },
 };
 
 const examples = [
@@ -37,7 +37,7 @@ export default function ContentPage() {
             Content automation
           </motion.p>
           <div style={{ overflow:"hidden", marginBottom:20 }}>
-            <motion.h1 initial={{ y:"105%" }} animate={{ y:"0%" }} transition={{ duration:.85, ease:[.16,1,.3,1] }}
+            <motion.h1 initial={{ y:"105%" }} animate={{ y:"0%" }} transition={{ duration:.85, ease:[.16,1,.3,1] as [number,number,number,number] }}
               style={{ fontFamily:font, fontSize:"clamp(52px,7vw,96px)", fontWeight:900, letterSpacing:"-0.045em", lineHeight:.97, color:C.black }}>
               Altid friskt indhold.<br/><span style={{ color:C.purple }}>Altid.</span>
             </motion.h1>
@@ -70,7 +70,7 @@ export default function ContentPage() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16 }}>
             {examples.map((ex, i) => (
               <motion.div key={i} initial={{ opacity:0, y:36 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.65, delay:i*.08, ease:[.16,1,.3,1] }}
+                transition={{ duration:.65, delay:i*.08, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ background:"#F7F7F5", borderRadius:20, padding:"32px 28px", border:"1px solid rgba(0,0,0,.07)" }}>
                 <div style={{ display:"flex", gap:8, marginBottom:20 }}>
                   <span style={{ fontSize:11, fontWeight:700, letterSpacing:".12em", color:C.purple, background:"rgba(175,82,222,.08)", padding:"4px 12px", borderRadius:100 }}>{ex.platform}</span>
@@ -98,7 +98,7 @@ export default function ContentPage() {
           <div style={{ display:"flex", flexDirection:"column", gap:20 }}>
             {features.map((f, i) => (
               <motion.div key={i} initial={{ opacity:0, x:24 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }}
-                transition={{ duration:.62, delay:i*.07, ease:[.16,1,.3,1] }}
+                transition={{ duration:.62, delay:i*.07, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ background:"#fff", borderRadius:16, padding:"24px 26px", border:"1px solid rgba(0,0,0,.07)", borderLeft:`3px solid ${C.purple}` }}>
                 <div style={{ fontSize:15, fontWeight:700, color:C.black, marginBottom:6 }}>{f.title}</div>
                 <div style={{ fontSize:14, color:"#888", lineHeight:1.6 }}>{f.desc}</div>

@@ -165,7 +165,7 @@ function CheckoutForm() {
         <AnimatePresence mode="wait">
           <motion.div key={step}
             initial={{ opacity:0, x:24 }} animate={{ opacity:1, x:0 }} exit={{ opacity:0, x:-24 }}
-            transition={{ duration:.3, ease:[.16,1,.3,1] }}
+            transition={{ duration:.3, ease:[.16,1,.3,1] as [number,number,number,number] }}
           >
             <h2 style={{ fontSize:28, fontWeight:900, letterSpacing:"-0.03em", marginBottom:8 }}>{current.title}</h2>
             <p style={{ fontSize:14, color:"#999", marginBottom:32 }}>Trin {step+1} af {totalSteps}</p>

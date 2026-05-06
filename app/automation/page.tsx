@@ -6,7 +6,7 @@ const reveal = {
   initial:{ opacity:0, y:36 },
   whileInView:{ opacity:1, y:0 },
   viewport:{ once:true } as const,
-  transition:{ duration:.75, ease:[.16,1,.3,1] }
+  transition:{ duration:.75, ease:[.16,1,.3,1] as [number,number,number,number] }
 };
 
 const flowSteps = [
@@ -145,7 +145,7 @@ export default function AutomationPage() {
             {tiers.map((tier, i) => (
               <motion.div key={tier.id}
                 initial={{ opacity:0, y:48 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] }}
+                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ position:"relative" }}
               >
                 {tier.popular && (

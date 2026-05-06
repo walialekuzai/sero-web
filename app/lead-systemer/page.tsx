@@ -6,7 +6,7 @@ const reveal = {
   initial:{ opacity:0, y:36 },
   whileInView:{ opacity:1, y:0 },
   viewport:{ once:true } as const,
-  transition:{ duration:.75, ease:[.16,1,.3,1] }
+  transition:{ duration:.75, ease:[.16,1,.3,1] as [number,number,number,number] }
 };
 
 const leads = [
@@ -47,7 +47,7 @@ function LeadDemo({ delay=0 }: { delay?: number }) {
           <motion.div key={i}
             initial={{ opacity:0, x:-16 }}
             animate={{ opacity:1, x:0 }}
-            transition={{ delay: delay + i * .5 + .3, duration:.4, ease:[.16,1,.3,1] }}
+            transition={{ delay: delay + i * .5 + .3, duration:.4, ease:[.16,1,.3,1] as [number,number,number,number] }}
             style={{ display:"flex", alignItems:"center", gap:10, padding:"8px 10px", borderRadius:10, marginBottom:6, background: lead.hot ? "rgba(26,107,255,.04)" : "transparent", border:`1px solid ${lead.hot ? "rgba(26,107,255,.1)" : "rgba(0,0,0,.05)"}` }}
           >
             <div style={{ width:28, height:28, borderRadius:"50%", background: lead.hot ? "#1A6BFF" : "#e0e0e0", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, color:lead.hot?"#fff":"#aaa", fontWeight:700, flexShrink:0 }}>
@@ -137,7 +137,7 @@ export default function LeadSystemerPage() {
             {tiers.map((tier, i) => (
               <motion.div key={tier.id}
                 initial={{ opacity:0, y:48 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] }}
+                transition={{ duration:.75, delay:i*.1, ease:[.16,1,.3,1] as [number,number,number,number] }}
                 style={{ position:"relative" }}
               >
                 {tier.popular && (

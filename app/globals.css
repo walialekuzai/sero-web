@@ -1,0 +1,83 @@
+:root {
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --black:  #0A0A0A;
+  --white:  #ffffff;
+  --off:    #FAFAFA;
+  --blue:   #1A6BFF;
+  --green:  #34C759;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+
+body {
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--off);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  cursor: auto;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; }
+input, textarea, select { font-family: inherit; }
+
+/* Cursor */
+#sero-cursor {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #0A0A0A; pointer-events: none;
+  transform: translate(-50%,-50%);
+  transition: width .25s cubic-bezier(.25,1,.5,1), height .25s cubic-bezier(.25,1,.5,1), background .2s;
+  will-change: transform; mix-blend-mode: difference;
+}
+#sero-cursor.big { width: 48px; height: 48px; }
+
+/* Lenis */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Ticker */
+.ticker-wrap { overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: inline-flex; animation: ticker 28s linear infinite; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Gradient orb animations */
+@keyframes orb-a {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(70px,-50px) scale(1.1); }
+  66% { transform: translate(-50px,35px) scale(.95); }
+}
+@keyframes orb-b {
+  0%,100% { transform: translate(0,0) scale(1); }
+  40% { transform: translate(-90px,60px) scale(1.05); }
+  70% { transform: translate(60px,-70px) scale(1.08); }
+}
+@keyframes orb-c {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(50px,50px) scale(1.06); }
+}
+
+/* Website demo scroll animation */
+@keyframes demo-scroll {
+  0%     { transform: translateY(0); }
+  8%     { transform: translateY(0); }
+  42%    { transform: translateY(-55%); }
+  55%    { transform: translateY(-55%); }
+  88%    { transform: translateY(0); }
+  100%   { transform: translateY(0); }
+}
+
+/* Chat animation */
+@keyframes chat-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+/* Reveal states */
+.hidden-up { opacity: 0; transform: translateY(40px); }
+
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  #sero-cursor { display: none; }
+}
